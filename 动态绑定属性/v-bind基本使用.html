@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = '../js/vue.js'></script>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgUrl" alt="">
+        <a v-bind:href="Href">baidu</a>
+        <!-- v-bind语法糖: -->
+        <img :src="imgUrl" alt="">
+        <a :href="Href">baidu</a>
+        
+    </div>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message:'nihao',
+            Href:'https://www.baidu.com',
+            imgUrl: "http://img4.imgtn.bdimg.com/it/u=2636172996,1736776334&fm=26&gp=0.jpg"
+        }
+    }) 
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- meta:vp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- cpn中间放入内容以插入slot -->
+        <cpn><button>button</button><span slot='middle'>not middle</span></cpn>
+        <cpn><a href="#">###</a></cpn>
+    </div>
+
+
+    <template id='cpn'>
+        <div><!-- 抽取共性，预留不同 -->
+            <h2>组件标题</h2>
+            <!-- 下面定义一个插槽满足不同的内容需求，更加灵活 -->
+            <slot></slot>
+            <!-- 插槽里可以给一个默认值，传入新内容可以覆盖 -->
+            <!-- 定义多个插槽以满足多个位置 -->
+            <slot name = 'left'><span>left</span></slot>
+            <slot name = 'middle'><span>middle</span></slot>
+            <slot name = 'right'><span>right</span></slot>
+        </div>
+        
+    </template>
+
+
+    <script src='../js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            components:{
+                cpn:{
+                    template:'#cpn'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

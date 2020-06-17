@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = '../js/vue.js'></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'app'>
+        <div class="active">{{message}}</div>
+        <div :class='active'>{{message}}</div>
+        <div :class='{active:isActive}'>{{message}}</div>
+
+        <button v-on:click='btnClick()'>按钮</button>
+    </div>
+    
+<script>
+    const app = new Vue({
+        el: '#app',
+
+        data:{
+            message:'v-bind动态绑定class',
+            active: 'active',
+            isActive: true
+        },
+
+        methods: {
+                btnClick(){
+                    this.isActive = !this.isActive
+                }
+            }
+    }) 
+</script>
+</body>
+</html>

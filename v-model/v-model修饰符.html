@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <label for="male">
+            <!-- 懒加载 -->
+            <input type="text"  value = 'male' v-model.lazy ='sex'>
+        </label>
+        <input type="number" v-model.number = 'age'>
+        <!-- 去除空格 -->
+        <input type="text" v-model.trim = 'string'>
+        <h2>{{sex}}</h2>
+        <h2>{{age}}</h2>
+        <h2>{{string}}</h2>
+    </div>
+
+
+    <script src = './js/vue.js'></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                sex:'male',
+                age:18,
+                string:''
+            }
+        })
+    </script>
+</body>
+</html>

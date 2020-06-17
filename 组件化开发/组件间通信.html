@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'>
+        <cpn :cmovies='movies'></cpn> 
+    </div>
+
+
+    <template id='cpn'>
+        <div>
+            <p>{{cmovies}}</p>
+            <ul>
+                <li v-for='item in cmovies'>{{item}}</li>
+            </ul>
+        </div>
+    </template>
+    <script src = '../js/vue.js'></script>
+    <script>
+        const cpn = {
+            template:'#cpn',
+            props:['cmovies'],
+            // props向自组件传递数据
+            // props:{ 
+            //   cmovies:{
+            //        type:Array // 也可以传入对象，可以限制类型
+            //      default: 'aaa'  //可以传入默认值
+            //          required:true //必传}
+        }
+
+        const app = new Vue({
+            el:"#app",
+            data:{
+                movies:['!','@','#','$']
+            },
+            components:{
+                cpn
+            }
+        });
+    </script>
+</body>
+</html>

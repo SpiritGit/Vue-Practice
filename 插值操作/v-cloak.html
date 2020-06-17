@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = '../js/vue.js'></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <h2 v-cloak>{{message}}</h2>
+       <!-- 在解析之前属性存在，解析之后不存在，v-cloak的作用是防止js加载好之前页面出现源码 -->
+    </div>
+
+<script>
+    setTimeout(function(){
+       const app = new Vue({
+        el: '#app',
+        data:{
+            message:'nihao',
+            counter:10,
+            url: "<a href = 'https://www.baidu.com'>百度一下</a>"
+        }
+        })  
+    },1000)
+    
+</script>
+</body>
+</html>

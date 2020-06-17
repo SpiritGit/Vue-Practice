@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div id="app">
+        <cpn ref='aaa'></cpn>
+        <!-- this.$refs 通过ref拿到对应组件 -->
+        <button @click='btnClick'>button</button>
+  </div>  
+
+
+  <script src='../js/vue.js'></script>
+  <template id = 'cpn'>
+      <div>我是子组件</div>
+  </template>
+  <script>
+      const app = new Vue({
+          el:'#app',
+          components:{
+              cpn:{
+                  template:'#cpn',
+                  methods:{
+                      showMessage(){
+                          alert('show');
+                      }
+                  },
+                  data(){
+                      return{
+                          name:'我是子组件的name'
+                      }
+                  }
+              }
+          },
+          methods:{
+              btnClick(){
+                //   $children 但是用的比较少，只能通过下标拿组件
+                //   console.log(this.$children);
+                //   this.$children[0].showMessage();
+                //   alert(this.$children[0].name);
+
+                //   $refs
+                console.log(this.$refs.aaa.name);
+              }
+          }
+      })
+  </script>
+</body>
+</html>
